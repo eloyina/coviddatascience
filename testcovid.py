@@ -1182,6 +1182,7 @@ axs[0].plot(dft['state'], dft['death'], '*')
 axs[0].plot(dft2['state'], dft2['staff_shortage_total'], 'o')
 axs[0].tick_params(labelrotation=90)
 
+
 axs[1].plot(dft3['date'], dft3['death'])
 axs[1].plot(dft4['date'], dft4['staff_shortage_total'])
 
