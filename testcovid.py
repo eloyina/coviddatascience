@@ -1,3 +1,4 @@
+
 import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
@@ -59,7 +60,6 @@ urlCov = "https://healthdata.gov/resource/g62h-syeh.csv"
 
 USCov = pd.read_csv(urlCov)
 
-list_1819=USCov['previous_day_admission_adult_covid_confirmed_18_19'].tolist()
 
 # Convert Date from Dtype 'Object' (or String) to Dtype 'Datetime'
 USCov["date"] = pd.to_datetime(USCov["date"])
@@ -1007,6 +1007,10 @@ dff2=USCov2.groupby("state", as_index=False)["total_adult_patients_hospitalized_
 dff2=dff2.sort_values('total_adult_patients_hospitalized_confirmed_covid_coverage', ascending=False)
 dff23= pd.DataFrame(dff2)
 
+dff5=dff23.head(5)
+print(dff5)
+
+dff23= pd.DataFrame(dff2)
 
 cleanup = {'state':{
     'AK': 'Alaska',
@@ -1099,7 +1103,7 @@ st.subheader("¿cuál fue el peor mes de la pandemia para USA en su conjunto? Pu
 
 container= st.container()
 container.write('En la gráfica de la pregunta Nro 7, se muestra el pico de muertes que corresponde,')
-container.write('al mes de Junio del 2020 ')
+container.write('al mes de Agosto del 2020 ')
 
 
 urlCov = "https://healthdata.gov/resource/g62h-syeh.csv"
@@ -1181,7 +1185,6 @@ fig88, axs = plt.subplots(2, figsize=(10,8))
 axs[0].plot(dft['state'], dft['death'], '*')
 axs[0].plot(dft2['state'], dft2['staff_shortage_total'], 'o')
 axs[0].tick_params(labelrotation=90)
-
 
 axs[1].plot(dft3['date'], dft3['death'])
 axs[1].plot(dft4['date'], dft4['staff_shortage_total'])
